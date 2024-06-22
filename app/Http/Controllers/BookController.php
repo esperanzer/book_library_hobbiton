@@ -12,7 +12,7 @@ class BookController extends Controller
     {
         return Book::all();
     }
-
+// store books
     public function store(Request $request)
     {
         $request->validate([
@@ -20,7 +20,7 @@ class BookController extends Controller
             'author' => 'required|string|max:255',
             'isbn' => 'nullable|string|max:255',
         ]);
-
+// create book
         $book = Book::create($request->all());
 
         return response()->json($book, 201);
